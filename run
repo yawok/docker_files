@@ -1,0 +1,6 @@
+filename=$(echo $1 | cut -d"." -f 1)
+object_file=$filename".o"
+nasm -f elf64 $1 
+ld $object_file -o $filename
+./$filename
+rm $filename $object_file
